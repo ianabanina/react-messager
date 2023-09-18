@@ -1,0 +1,114 @@
+{
+  "messages": [
+    {
+      "id": "11",
+      "date": "2023-09-18T08:27:29.033Z",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate deleniti distinctio dolor doloremque, illum ipsum laborum modi molestias mollitia nam nemo neque numquam officiis, placeat praesentium, quis quo tenetur voluptas?",
+      "author": {
+        "id": "5",
+        "firstName": "Charlie",
+        "lastName": "Brown"
+      }
+    },
+    {
+      "id": "10",
+      "date": "2023-09-18T08:25:29.033Z",
+      "text": "Enjoy your hike!",
+      "author": {
+        "id": "5",
+        "firstName": "Charlie",
+        "lastName": "Brown"
+      }
+    },
+    {
+      "id": "9",
+      "date": "2023-09-18T08:24:29.033Z",
+      "text": "Yes, I can't wait!",
+      "author": {
+        "id": "4",
+        "firstName": "Eve",
+        "lastName": "Wilson"
+      }
+    },
+    {
+      "id": "8",
+      "date": "2023-09-18T08:23:29.033Z",
+      "text": "Sounds fun!",
+      "author": {
+        "id": "3",
+        "firstName": "Bob",
+        "lastName": "Johnson"
+      }
+    },
+    {
+      "id": "7",
+      "date": "2023-09-18T08:22:29.033Z",
+      "text": "I'm going hiking!",
+      "author": {
+        "id": "2",
+        "firstName": "Alice",
+        "lastName": "Smith"
+      }
+    },
+    {
+      "id": "6",
+      "date": "2023-09-18T08:18:29.033Z",
+      "text": "What are your plans for the weekend?",
+      "author": {
+        "id": "1",
+        "firstName": "John",
+        "lastName": "Doe"
+      }
+    },
+    {
+      "id": "5",
+      "date": "2023-09-18T08:16:29.033Z",
+      "text": "Indeed, it's lovely.",
+      "author": {
+        "id": "5",
+        "firstName": "Charlie",
+        "lastName": "Brown"
+      }
+    },
+    {
+      "id": "4",
+      "date": "2023-09-18T08:15:29.033Z",
+      "text": "Nice weather today.",
+      "author": {
+        "id": "4",
+        "firstName": "Eve",
+        "lastName": "Wilson"
+      }
+    },
+    {
+      "id": "3",
+      "date": "2023-09-18T08:11:29.033Z",
+      "text": "I'm doing well, thanks!",
+      "author": {
+        "id": "3",
+        "firstName": "Bob",
+        "lastName": "Johnson"
+      }
+    },
+    {
+      "id": "2",
+      "date": "2023-09-18T08:04:29.033Z",
+      "text": "How are you?",
+      "author": {
+        "id": "2",
+        "firstName": "Alice",
+        "lastName": "Smith"
+      }
+    },
+    {
+      "id": "1",
+      "date": "2023-09-18T08:02:29.033Z",
+      "text": "Hello, World!",
+      "author": {
+        "id": "1",
+        "firstName": "John",
+        "lastName": "Doe"
+      }
+    }
+  ]
+}
