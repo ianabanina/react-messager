@@ -2,6 +2,7 @@ import {Card} from "common/components/Card.tsx";
 import {getFullName, getUserInitials} from "entities/users/helpers/Users.helpers.ts";
 import {useNavigate} from "react-router-dom";
 import {IChatUser} from "entities/users/Users.models.ts";
+import {formatDateForChat} from "../../../common/helpers/Date.helpers.ts";
 
 interface IComponentProps {
     date: string;
@@ -27,7 +28,7 @@ export function MessageCard(props: IComponentProps) {
                  description={text}
                  isAvatarOnRight={isCurrentUser}
                  avatarText={initials}
-                 date={date}
+                 date={formatDateForChat(date)}
                  onAvatarClick={redirectToUserPage}
                  onHeaderClick={redirectToUserPage}
     />
