@@ -3,6 +3,7 @@ import {getFullName, getUserInitials} from "entities/users/helpers/Users.helpers
 import {useNavigate} from "react-router-dom";
 import {IChatUser} from "entities/users/Users.models.ts";
 import {formatDateForChat} from "../../../common/helpers/Date.helpers.ts";
+import {CURRENT_USER_ID} from "../../../common/const/Base.const.ts";
 
 interface IComponentProps {
     date: string;
@@ -10,12 +11,9 @@ interface IComponentProps {
     author: IChatUser;
 }
 
-// TODO: Should get current user from BE
-const currentUserId = "4";
-
 export function MessageCard(props: IComponentProps) {
     const {text, author, date} = props;
-    const isCurrentUser = author.id === currentUserId;
+    const isCurrentUser = author.id === CURRENT_USER_ID;
     const fullName = getFullName(author.firstName, author.lastName);
     const initials = getUserInitials(author.firstName, author.lastName);
     const navigate = useNavigate();
