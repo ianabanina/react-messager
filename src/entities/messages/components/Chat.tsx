@@ -1,13 +1,14 @@
-import {useGetMessagesQuery} from "entities/messages/Messages.transport.ts";
+import {Button} from "antd";
+import {MessagesList} from "entities/messages/components/MessagesList.tsx";
 
 export function Chat() {
-    const {data: messages} = useGetMessagesQuery();
-
-    if (!messages?.length) {
-        return <div>No items</div>
-    }
-
     return <div className={'chat'}>
-        Chat
+        <div className={'chat__messages'}>
+           <MessagesList />
+        </div>
+
+        <div className={'chat__footer'}>
+            <Button type={'primary'}>Add new message</Button>
+        </div>
     </div>
 }

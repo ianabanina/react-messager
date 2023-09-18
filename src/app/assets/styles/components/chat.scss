@@ -1,0 +1,20 @@
+// TODO: Replace all hardcoded values to variables
+.chat {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__messages {
+    flex: 1;
+    min-height: 100%;
+    display: flex;
+    overflow: auto;
+    flex-direction: column-reverse;
+  }
+
+  &__footer {
+    padding: 8px 0;
+    display: flex;
+    justify-content: end;
+  }
+}
