@@ -1,5 +1,5 @@
-import {Button} from "antd";
 import {MessagesList} from "entities/messages/components/MessagesList.tsx";
+import {AddMessageBtn} from "entities/messages/components/AddMessageBtn.tsx";
 
 export function Chat() {
     return <div className={'chat'}>
@@ -8,7 +8,7 @@ export function Chat() {
         </div>
 
         <div className={'chat__footer'}>
-            <Button type={'primary'}>Add new message</Button>
+            <AddMessageBtn />
         </div>
     </div>
 }
