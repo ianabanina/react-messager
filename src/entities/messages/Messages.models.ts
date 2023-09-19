@@ -9,5 +9,15 @@ export interface IMessage {
 
 export interface IMessagesCollection extends Array<IMessage> {
 }
+// There is an interface for a mocked server. It will be better to use interface below for production solution:
+// export interface IMessagesCollection extends IResponseCollection<IMessage> {}
+// interface IResponseCollection<T> {
+//     data: T,
+//     meta: {
+//         count: number; // count of items without limit+offset
+//     }
+// }
+
 
 export type TGetMessagesParams = { "author.id": string } | undefined;
+// I'd like to use authorId instead of "author.id", but it's necessary for mocked BE. Not production solution

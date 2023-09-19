@@ -33,7 +33,6 @@ export function Card(props: IComponentProps) {
                 </div>
 
                 <div className={'card__date'}>
-                    {/*TODO: Format date*/}
                     {date}
                 </div>
             </div>
