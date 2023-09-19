@@ -1,6 +1,6 @@
 import {Avatar, Card, Space} from "antd";
 import {getFullName, getUserInitials} from "entities/users/helpers/Users.helpers.ts";
-import {useGetUserQuery} from "entities/users/Users.trsnaport.ts";
+import {useGetUserQuery} from "entities/users/Users.transport.ts";
 
 interface IComponentProps {
     id: string;

@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
 import {messagesTransport} from "entities/messages/Messages.transport.ts";
-import {usersTransport} from "entities/users/Users.trsnaport.ts";
+import {usersTransport} from "entities/users/Users.transport.ts";
 
 export const store = configureStore({
     reducer: {
