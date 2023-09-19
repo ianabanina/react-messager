@@ -16,12 +16,14 @@ export function UsersMessagesList(props: IComponentProps) {
         return <div>No items</div>
     }
 
+    const isVisiblePagination = messages.length > USERS_MESSAGES_PER_PAGE;
+
     return <>
         <h3>User's messages: </h3>
 
         <List
             // There is FE pagination. But it will be better to use limit + offset like query params on BE
-            pagination={{position: 'bottom', align: 'end', pageSize: USERS_MESSAGES_PER_PAGE}}
+            pagination={isVisiblePagination ? {position: 'bottom', align: 'end', pageSize: USERS_MESSAGES_PER_PAGE} : false}
             dataSource={messages}
             renderItem={(message) => (
                 <MessageCard text={message.text} date={message.date} key={message.id}/>
