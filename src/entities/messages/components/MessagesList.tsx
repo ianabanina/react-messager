@@ -1,9 +1,9 @@
 import {useGetMessagesQuery} from "entities/messages/Messages.transport.ts";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {MessageCard} from "entities/messages/components/MessageCard.tsx";
-import {MessagesFilters} from "./MessagesFilters.tsx";
+import {MessagesFilters} from "entities/messages/components/MessagesFilters.tsx";
 import {useState} from "react";
-import {TGetMessagesParams} from "../Messages.models.ts";
+import {TGetMessagesParams} from "entities/messages/Messages.models.ts";
+import {ChatsMessageCard} from "entities/messages/components/ChatsMessageCard.tsx";
 
 export function MessagesList() {
     const [filters, setFilters] = useState<TGetMessagesParams>();
@@ -30,8 +30,8 @@ export function MessagesList() {
                 loader={<h4>Loading...</h4>}
             >
                 {messages.map((message) =>
-                    <MessageCard text={message.text} date={message.date} author={message.author}
-                                 key={message.id}/>)}
+                    <ChatsMessageCard text={message.text} date={message.date} author={message.author}
+                                      key={message.id}/>)}
             </InfiniteScroll>
         </div>
     </>
