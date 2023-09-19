@@ -3,12 +3,10 @@ import {AddMessageBtn} from "entities/messages/components/AddMessageBtn.tsx";
 
 export function Chat() {
     return <div className={'chat'}>
-        <div className={'chat__messages'}>
-           <MessagesList />
-        </div>
+        <MessagesList/>
 
         <div className={'chat__footer'}>
-            <AddMessageBtn />
+            <AddMessageBtn/>
         </div>
     </div>
 }

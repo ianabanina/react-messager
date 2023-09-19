@@ -9,3 +9,5 @@ export interface IMessage {
 
 export interface IMessagesCollection extends Array<IMessage> {
 }
+
+export type TGetMessagesParams = { "author.id": string } | undefined;
