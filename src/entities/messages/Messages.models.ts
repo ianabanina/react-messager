@@ -4,6 +4,7 @@ export interface IMessage {
     id: string;
     date: string;
     text: string;
+    isFavorite: boolean;
     author: IChatUser;
 }
 

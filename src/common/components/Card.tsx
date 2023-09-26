@@ -1,17 +1,29 @@
 import {Avatar} from "antd";
+import {ReactNode} from "react";
 
 interface IComponentProps {
-    description: string;
+    description: string | ReactNode;
     date: string;
     header?: string;
     isAvatarOnRight?: boolean;
     avatarText?: string;
     onAvatarClick?: () => void;
     onHeaderClick?: () => void;
+    cardWithBg?: boolean;
 }
 
 export function Card(props: IComponentProps) {
-    const {header, description, date, isAvatarOnRight, avatarText, onAvatarClick, onHeaderClick} = props;
+    const {
+        header,
+        description,
+        date,
+        isAvatarOnRight,
+        avatarText,
+        cardWithBg,
+        onAvatarClick,
+        onHeaderClick
+    }
+        = props;
 
     return <div className={`card-wrapper ${isAvatarOnRight ? 'card-wrapper_right' : ''}`}>
         <div className={`card ${isAvatarOnRight ? 'card_right' : ''}`}>
@@ -22,7 +34,7 @@ export function Card(props: IComponentProps) {
                 </Avatar>
             </div>}
 
-            <div className={'card__content'}>
+            <div className={`card__content ${cardWithBg ? 'card__content_bright' : ''}`}>
                 {header &&
                     <div className={`card__header ${onHeaderClick ? 'c-pointer' : undefined}`} onClick={onHeaderClick}>
                         {header}

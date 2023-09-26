@@ -28,7 +28,23 @@ export const messagesTransport = createApi({
             }),
             invalidatesTags: ['Messages'],
         }),
+        setIsFavorite: builder.mutation({
+                query: ({id, ...rest}: Pick<IMessage<IUser>, 'isFavorite' | 'id'>) => ({
+                    url: `${baseUrl}/${id}`,
+                    method: 'PATCH',
+                    body: rest,
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    }
+                }),
+                invalidatesTags: ['Messages']
+            }
+        ),
     }),
 })
 
-export const {useGetMessagesQuery, useAddMessageMutation} = messagesTransport;
+export const {
+    useGetMessagesQuery,
+    useAddMessageMutation,
+    useSetIsFavoriteMutation,
+} = messagesTransport;

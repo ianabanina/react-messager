@@ -29,7 +29,8 @@ export function AddMessageBtn() {
             ...values,
             date: moment().toISOString(),
             author: CURRENT_USER,
-            id: moment().toISOString()
+            id: moment().toISOString(),
+            isFavorite: false,
         }
 
         addMessage(messageData)

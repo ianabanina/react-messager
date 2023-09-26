@@ -30,8 +30,13 @@ export function MessagesList() {
                 loader={<h4>Loading...</h4>}
             >
                 {messages.map((message) =>
-                    <ChatsMessageCard text={message.text} date={message.date} author={message.author}
-                                      key={message.id}/>)}
+                    <ChatsMessageCard text={message.text}
+                                      date={message.date}
+                                      author={message.author}
+                                      key={message.id}
+                                      isFavorite={message.isFavorite}
+                                      id={message.id}
+                    />)}
             </InfiniteScroll>
         </div>
     </>
