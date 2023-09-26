@@ -4,6 +4,7 @@ import {useAddMessageMutation} from "entities/messages/Messages.transport.ts";
 import {IMessage} from "entities/messages/Messages.models.ts";
 import moment from "moment";
 import {CURRENT_USER} from "common/const/Base.const.ts";
+import {IUserData} from "entities/users/Users.models.ts";
 
 interface INewMessageForm {
     text: string
@@ -25,7 +26,7 @@ export function AddMessageBtn() {
 
     const onFinish = (values: INewMessageForm) => {
         // TODO: Should not send id and author info and date with real BE
-        const messageData: IMessage = {
+        const messageData: IMessage<IUserData> = {
             ...values,
             date: moment().toISOString(),
             author: CURRENT_USER,

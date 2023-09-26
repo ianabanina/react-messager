@@ -1,5 +1,4 @@
 import {Card} from "common/components/Card.tsx";
-import {getFullName, getUserInitials} from "entities/users/helpers/Users.helpers.ts";
 import {useNavigate} from "react-router-dom";
 import {IChatUser} from "entities/users/Users.models.ts";
 import {formatDateForChat} from "common/helpers/Date.helpers.ts";
@@ -19,8 +18,6 @@ export function ChatsMessageCard(props: IComponentProps) {
     const {text, author, date, isFavorite, id} = props;
     const [setIsFavorite] = useSetIsFavoriteMutation();
     const isCurrentUser = author.id === CURRENT_USER_ID;
-    const fullName = getFullName(author.firstName, author.lastName);
-    const initials = getUserInitials(author.firstName, author.lastName);
     const navigate = useNavigate();
 
     const redirectToUserPage = () => {
@@ -34,7 +31,7 @@ export function ChatsMessageCard(props: IComponentProps) {
         });
     };
 
-    return <Card header={isCurrentUser ? undefined : fullName}
+    return <Card header={isCurrentUser ? undefined : author.fullName}
                  description={
                      <div className={'d-flex d-flex_justify-between gap-8'}>
                          <div>{text}</div>
@@ -45,7 +42,7 @@ export function ChatsMessageCard(props: IComponentProps) {
                      </div>
                  }
                  isAvatarOnRight={isCurrentUser}
-                 avatarText={initials}
+                 avatarText={author.initials}
                  date={formatDateForChat(date)}
                  onAvatarClick={redirectToUserPage}
                  onHeaderClick={redirectToUserPage}
