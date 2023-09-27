@@ -1,9 +1,10 @@
 import {Card} from "common/components/Card.tsx";
 import {getFullName, getUserInitials} from "entities/users/helpers/Users.helpers.ts";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {IChatUser} from "entities/users/Users.models.ts";
 import {formatDateForChat} from "common/helpers/Date.helpers.ts";
 import {CURRENT_USER_ID} from "common/const/Base.const.ts";
+import {ERoutes} from "common/const/Router.const.ts";
 
 interface IComponentProps {
     date: string;
@@ -22,7 +23,7 @@ export function ChatsMessageCard(props: IComponentProps) {
         navigate(`/user/${author.id}`);
     }
 
-    return <Card header={isCurrentUser ? undefined : fullName}
+    return <Card header={isCurrentUser ? undefined : <Link to={`${ERoutes.User}/${author.id}`}>{fullName}</Link>}
                  description={text}
                  isAvatarOnRight={isCurrentUser}
                  avatarText={initials}

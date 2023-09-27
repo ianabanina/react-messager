@@ -9,7 +9,7 @@ const router = createBrowserRouter([
         element: <Chat/>,
     },
     {
-        path: ERoutes.User,
+        path: `${ERoutes.User}/:userId`,
         element: <UserPage/>,
     },
 ]);

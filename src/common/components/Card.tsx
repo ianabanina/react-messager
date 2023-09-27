@@ -1,9 +1,10 @@
 import {Avatar} from "antd";
+import React from "react";
 
 interface IComponentProps {
     description: string;
     date: string;
-    header?: string;
+    header?: string | React.ReactNode;
     isAvatarOnRight?: boolean;
     avatarText?: string;
     onAvatarClick?: () => void;
@@ -24,7 +25,7 @@ export function Card(props: IComponentProps) {
 
             <div className={'card__content'}>
                 {header &&
-                    <div className={`card__header ${onHeaderClick ? 'c-pointer' : undefined}`} onClick={onHeaderClick}>
+                    <div className={`card__header ${onHeaderClick ? 'c-pointer' : undefined}`}>
                         {header}
                     </div>}
 
