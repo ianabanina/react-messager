@@ -1,4 +1,5 @@
 import {IChatUser} from "entities/users/Users.models.ts";
+import {IPagination, IPaginationParams, ISortParams} from "common/models/Response.models.ts";
 
 export interface IMessage {
     id: string;
@@ -7,17 +8,22 @@ export interface IMessage {
     author: IChatUser;
 }
 
-export interface IMessagesCollection extends Array<IMessage> {
+export interface IMessagesCollection {
+    data: IMessage[];
+    meta?: IPagination;
 }
-// There is an interface for a mocked server. It will be better to use interface below for production solution:
-// export interface IMessagesCollection extends IResponseCollection<IMessage> {}
-// interface IResponseCollection<T> {
-//     data: T,
-//     meta: {
-//         count: number; // count of items without limit+offset
-//     }
-// }
 
+export interface IMessagesCollectionData extends Array<IMessage> {
+}
 
-export type TGetMessagesParams = { "author.id": string } | undefined;
-// I'd like to use authorId instead of "author.id", but it's necessary for mocked BE. Not production solution
+interface IGetMessagesParams {
+    authorId?: string,
+}
+
+export type TGetMessagesParams = Partial<IGetMessagesParams> & Partial<IPaginationParams> & Partial<ISortParams> | undefined;
+
+interface IGetMessagesParamsData {
+    "author.id"?: string;
+}
+
+export type TGetMessagesParamsData = Partial<IGetMessagesParamsData> & Partial<IPaginationParams> & Partial<ISortParams> | undefined;

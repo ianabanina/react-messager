@@ -11,7 +11,7 @@ export function MessagesList() {
 
     // TODO: Add visual effect for an error and loading state
 
-    if (!messages?.length) {
+    if (!messages?.data.length) {
         return <div>No items</div>
     }
 
@@ -20,7 +20,7 @@ export function MessagesList() {
 
         <div className={'messages-list-wrapper'}>
             <InfiniteScroll
-                dataLength={messages.length}
+                dataLength={messages.data.length}
                 next={() => {
                     // TODO: Get more items
                 }}
@@ -29,7 +29,7 @@ export function MessagesList() {
                 hasMore={true} // TODO: Should depend on BE
                 loader={<h4>Loading...</h4>}
             >
-                {messages.map((message) =>
+                {messages.data.map((message) =>
                     <ChatsMessageCard text={message.text} date={message.date} author={message.author}
                                       key={message.id}/>)}
             </InfiniteScroll>
