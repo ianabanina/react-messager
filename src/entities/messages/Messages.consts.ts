@@ -9,3 +9,5 @@ export const filterByAuthorOptions = [
 ];
 
 export const USERS_MESSAGES_PER_PAGE = 5;
+
+export const messagesSortParamsDefault = {_sort: 'date', _order: 'desc'}

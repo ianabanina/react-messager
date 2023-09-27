@@ -8,3 +8,5 @@ export const CURRENT_USER = {
     "firstName": "Eve",
     "lastName": "Wilson"
 };
+
+export const PAGINATION_LIMIT_DEFAULT = 5;

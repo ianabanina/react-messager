@@ -1,6 +1,12 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import {IMessage, IMessagesCollection, TGetMessagesParams} from "entities/messages/Messages.models.ts";
+import {
+    IMessage,
+    IMessagesCollection,
+    TGetMessagesParams
+} from "entities/messages/Messages.models.ts";
 import {API_BASE_URL} from "common/const/Base.const.ts";
+import {mapMessagesCollectionData} from "entities/messages/Messages.mappers.ts";
+import {messagesSortParamsDefault} from "entities/messages/Messages.consts.ts";
 
 const baseUrl = '/messages'
 
@@ -10,11 +16,8 @@ export const messagesTransport = createApi({
     tagTypes: ['Messages'],
     endpoints: (builder) => ({
         getMessages: builder.query<IMessagesCollection, TGetMessagesParams>({
-            query: (params) => ({url: baseUrl, params}),
-            transformResponse: (response: IMessagesCollection) => {
-                // Sorting should be on BE, only for mock server
-                return response.reverse();
-            },
+            query: (params) => ({url: baseUrl, params: {...messagesSortParamsDefault, ...params,}}),
+            transformResponse: mapMessagesCollectionData,
             providesTags: ['Messages'],
         }),
         addMessage: builder.mutation({

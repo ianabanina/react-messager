@@ -1,7 +1,8 @@
 import {useGetMessagesQuery} from "entities/messages/Messages.transport.ts";
 import {MessageCard} from "entities/messages/components/MessageCard.tsx";
 import {List} from "antd";
-import {USERS_MESSAGES_PER_PAGE} from "entities/messages/Messages.consts.ts";
+import {PAGINATION_LIMIT_DEFAULT} from "common/const/Base.const.ts";
+import {useState} from "react";
 
 interface IComponentProps {
     userId: string;
@@ -9,22 +10,28 @@ interface IComponentProps {
 
 export function UsersMessagesList(props: IComponentProps) {
     const {userId} = props;
-    const {data: messages,} = useGetMessagesQuery({"author.id": userId});
+    const [page, setPage] = useState(1);
+    const {data: messages, isLoading} = useGetMessagesQuery({
+        "author.id": userId,
+        _page: page,
+        _limit: PAGINATION_LIMIT_DEFAULT
+    });
 
-    // TODO: Add visual effect for an error and loading state
-    if (!messages?.length) {
-        return <div>No items</div>
-    }
-
-    const isVisiblePagination = messages.length > USERS_MESSAGES_PER_PAGE;
+    const isVisiblePagination = messages?.meta && messages.meta.lastPage > 1;
 
     return <>
         <h3>User's messages: </h3>
 
         <List
-            // There is FE pagination. But it will be better to use limit + offset like query params on BE
-            pagination={isVisiblePagination ? {position: 'bottom', align: 'end', pageSize: USERS_MESSAGES_PER_PAGE} : false}
-            dataSource={messages}
+            pagination={isVisiblePagination ? {
+                position: 'bottom',
+                align: 'end',
+                pageSize: messages?.meta?.limit,
+                total: messages?.meta?.pageSize,
+                onChange: setPage
+            } : false}
+            dataSource={messages?.data}
+            loading={isLoading}
             renderItem={(message) => (
                 <MessageCard text={message.text} date={message.date} key={message.id}/>
             )}
