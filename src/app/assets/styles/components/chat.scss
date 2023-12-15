@@ -1,12 +1,11 @@
-// TODO: Replace all hardcoded values to variables
+$footer-space-vertical: 8px;
+
 .chat {
   max-height: 100vh;
   display: flex;
   flex-direction: column;
 
   &__footer {
-    padding: 8px 0;
-    display: flex;
-    justify-content: end;
+    padding: $footer-space-vertical 0;
   }
 }
