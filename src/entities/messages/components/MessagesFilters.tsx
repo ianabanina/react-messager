@@ -1,5 +1,4 @@
 import {RadioChangeEvent} from "antd";
-import {useState} from "react";
 import {Radio} from 'antd';
 import {TGetMessagesParams} from "entities/messages/Messages.models.ts";
 import {CURRENT_USER_ID} from "common/const/Base.const.ts";
@@ -12,23 +11,18 @@ interface IComponentProps {
 
 export function MessagesFilters(props: IComponentProps) {
     const {filters} = props;
-    const [byAuthor, setByAuthor] = useState(
-        filters?.["author.id"] === CURRENT_USER_ID ? EFilterByAuthorOption.I : EFilterByAuthorOption.All
-    );
 
     const onChangeAuthor = ({target: {value}}: RadioChangeEvent) => {
         const {updateFilters} = props;
 
-        setByAuthor(value);
-        // I'd like to use authorId instead of "author.id", but it's necessary for mocked BE. Not production solution
-        updateFilters(value === EFilterByAuthorOption.All ? undefined : {"author.id": CURRENT_USER_ID});
+        updateFilters(value === EFilterByAuthorOption.All ? undefined : {"authorId": CURRENT_USER_ID});
     };
 
     return <div className={'messages-filters'}>
         <Radio.Group
             options={filterByAuthorOptions}
             onChange={onChangeAuthor}
-            value={byAuthor}
+            value={filters?.authorId === CURRENT_USER_ID ? EFilterByAuthorOption.I : EFilterByAuthorOption.All}
             optionType="button"
             buttonStyle="solid"
         />
